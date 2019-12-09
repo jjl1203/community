@@ -1,4 +1,4 @@
-package top.xrk.fn436.community.hello;
+package top.xrk.fn436.community.controller.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
