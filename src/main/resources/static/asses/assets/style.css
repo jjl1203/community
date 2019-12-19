@@ -1,0 +1,391 @@
+/*----- pmove -----*/
+#pmoveNav {
+  position: absolute;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/*----- general -----*/
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Abel', sans-serif;
+  font-size: 26px;
+   cursor:pointer
+}
+div {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus, a:active {
+  outline:none;
+}
+h1:focus, h1:active {
+  outline:none;
+}
+h1 { font-size: 38px; }
+h2 { font-size: 34px; }
+h3 { font-size: 30px; }
+h4 { font-size: 26px; }
+p, a  { font-size: 26px; line-height: 35px; }
+@media (max-width:768px) {
+  h1 { font-size: 30px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 26px; }
+  h4 { font-size: 24px; }
+  p, a  { font-size: 22px; line-height: 30px; }
+}
+/*----- aframe -----*/
+.a-frame-container {
+  width:100%;
+  height:100vh;
+}
+/*----- overlay -----*/
+.loading_overlay {
+  position: fixed;
+	width: 100%;
+  height: 100vh;
+  color: white;
+  background-color:#080808;
+  opacity: 1;
+  -webkit-transition: opacity 0.75s, background-color 0.75s;
+  transition: opacity 0.75s, background-color 0.75s;
+  z-index: 2;
+  /*background-image:url(http://cdn.plex-vr.com/tour/jiuyuangang/assets/bg.jpg);
+    background-position: center;
+    background-size: cover;*/
+}
+
+.loading_overlay video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .loading_overlay {
+    overflow-y: scroll;
+  }
+}
+.loading_overlay_complete {
+  /*background-color: rgba(33,33,33,0.75);*/
+}
+/*----- title -----*/
+.loading_title, .info_title {
+	display: flex;
+  justify-content: center;
+  height: 20%;
+  text-align: center;
+}
+.loading_title_box, .info_title_box {
+  align-self: center;
+  font-size: 30px;
+}
+.loading_title_box img{
+height:50px;
+}
+.info_body {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  min-height: 45%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+/*----- controls -----*/
+.loading_controls {
+	display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  min-height: 55%;
+}
+.loading_controls_box {
+  align-self: center;
+  width:30%;
+  max-width:350px;
+}
+.loading_controls_box h2 {
+  margin-top: 0;
+}
+.loading_controls_box img {
+  width:256px;
+  max-width: 100%;
+}
+.loading_controls_box.platform_desktop {
+  text-align: center;
+}
+.loading_controls_box.platform_mobile {
+  width: initial;
+  max-width: initial;
+  overflow: hidden;
+  display: inline-block;
+  text-align: left;
+}
+.loading_controls_mobile_image {
+  display: inline-block;
+  float:left;
+}
+.loading_controls_mobile_text {
+  float:left;
+  margin-right: 75px;
+  padding-top: 50px;
+}
+@media (max-width: 768px) {
+  .loading_controls_box {
+    width:100%;
+    max-width: none;
+  }
+  .loading_controls_box img {
+    width: 128px;
+  }
+  .loading_controls_mobile_text {
+    margin-right: 35px;
+    padding-top: 10px;
+  }
+}
+@media (max-width: 512px) {
+  .loading_controls_mobile_text p {
+    font-size: 4vw;
+  }
+}
+/*----- enter -----*/
+.loading_enter {
+	display: flex;
+  justify-content: center;
+  height: 20%;
+}
+#loading_enter_box {
+	position: relative;
+	width:300px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	align-self: center;
+  border: 2px solid #545454;
+  /*background-color: none;*/
+  transition: background-color 0.5s;
+  font-size:24px;
+}
+#loading_enter_box:hover {
+  cursor: pointer;
+}
+#loading_progress {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.loading_in_progress {
+  background-color: #777576;
+  -webkit-transition: background-color 0.75s;
+  transition: background-color 0.75s, opacity 0.25s;
+  opacity: 1;
+}
+.loading_complete {
+  background-color: rgb(139,195,74);
+  opacity: 1;
+}
+/*----- footer -----*/
+.loading_footer {
+  width:100%;
+  height: 15%;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .loading_footer p {
+    margin: 0;
+  }
+}
+/*----- scene ui -----*/
+#scene_ui {
+  position: fixed;
+  z-index: 1;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0;
+  -webkit-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+.scene_ui_button {
+  color: white;
+  width: 64px;
+  height: 64px;
+  margin-top: 20px;
+  border-radius: 32px;
+  border: 2px solid rgba(255,255,255,0.75);
+  background-color: rgba(0,0,0,0.25);
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.scene_ui_button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+/*}*/
+/*.scene_ui_vr {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/vr.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/vr.png*!;*/
+/*}*/
+/*.scene_ui_mute {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/mute.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/mute.png*!;*/
+/*}*/
+/*.scene_ui_unmute {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/unmute.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/unmute.png*!;*/
+/*}*/
+/*.scene_ui_help {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/help.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/help.png*!;*/
+/*}*/
+/*.scene_ui_share {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/share.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/share.png*!;*/
+/*}*/
+/*.scene_ui_back {*/
+  /*background-image: url("../../../cdn.plex-vr.com/tour/jiuyuangang/assets/ui/info.png")!*tpa=http://cdn.plex-vr.com/tour/jiuyuangang/assets/ui/info.png*!;*/
+/*}*/
+.tooltip {
+  position: relative;
+}
+.tooltip .tooltiptext {
+  opacity:0;
+  width: 0;
+  -webkit-transition: opacity 0.4s, width 0.4s, right 0.4s;
+  transition: opacity 0.4s, width 0.4s, right 0.4s;
+  overflow: hidden;
+  pointer-events:none;
+  height: 25px;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  right: 65px;
+  font-size: 20px;
+}
+/*.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}*/
+.tooltip:hover .tooltiptext {
+  right: 75px;
+  opacity:1;
+  width: 100px;
+}
+
+#bottom_text_info{
+	position: absolute;
+	z-index: 1;
+	color: #000;
+	font-size: 20px;
+	left: 50vw;
+	top: calc(50vh + 10px);
+}
+#left_pic_info{
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	left: -36vw;
+	top: 0;
+  bottom: 0;
+  height: max-content;
+  margin:auto 0;
+	width: 36vw;
+  background-image: url("2.png")/*tpa=http://101.227.180.72:8080/shuiquanliang/assets/2.png*/;
+  background-repeat: repeat-y;
+  padding: 14px 14px 6px;
+  background-size: contain;
+
+
+
+	transition: left 0.5s;
+	-moz-transition: left 0.5s;	/* Firefox 4 */
+	-webkit-transition: left 0.5s;	/* Safari 和 Chrome */
+	-o-transition: left 0.5s;	/* Opera */
+
+}
+.loading_model{
+	margin:auto;
+}
+#help_layer{
+		position: absolute;
+		display: none;
+		z-index: 2;
+		height: 100%;
+		width: 100%;
+	}
+#help_layer img{
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+}
+#left_pic_info h3{
+  background-image: url("1.png")/*tpa=http://101.227.180.72:8080/shuiquanliang/assets/1.png*/;
+  background-repeat: no-repeat;
+  margin: 0 0 6px 0;
+  text-align: center;
+  background-position-x: center;
+  font-size: 26px;
+  font-family: Microsoft Yahei, sans-serif;
+  font-weight: 400;
+  letter-spacing: 5px;
+
+}
+#left_pic_info img{
+	width: 100%;
+  border: solid 1px rgba(255, 255, 255, 0.74);
+
+}
+/*自定义右边文字*/
+
+#right_pic_info{
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  right: -36vw;
+  top: 0;
+  bottom: 0;
+  height: max-content;
+  margin:auto 0;
+  width: 36vw;
+  /*opacity: 0.5;*/
+  background-image: url("2.png")/*tpa=http://101.227.180.72:8080/shuiquanliang/assets/2.png*/;
+  background-repeat: repeat-y;
+  padding: 14px 14px 6px;
+  background-size: contain;
+/*添加过度效果*/
+  transition: right 1s;
+  -moz-transition: right 0.5s;	/* Firefox 4 */
+  -webkit-transition: right 0.5s;	/* Safari 和 Chrome */
+  -o-transition: right 0.5s;	/* Opera */
+
+}

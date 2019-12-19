@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/asses/assets/style.css">
+</head>
+<body>
+
+<!-- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+<script src="/js/aframe.min.js"></script>
+<script src="http://cdn.plex-vr.com/tour/bihua/js/aframe-extras.min.js"></script>
+<script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+<script src="/js/app.js"></script>
+<div id="bottom_text_info"> </div>
+<div id="left_pic_info"> </div>
+<a-scene>
+    <a-light type="ambient" color="white" position="0.047 2.518 -1.533" rotation="-90 0 0"
+             light="color:#ebebeb;groundColor:#ebebeb;penumbra:0.5;angle:20"></a-light>
+
+    <a-light type="ambient" color="white" position="-0.193 2.424 -1.598" rotation="-90.01166961505233 0 0"
+             light="castShadow:true;intensity:0.3;type:spot;penumbra:0.6;decay:0"></a-light>
+    <a-assets>
+        <!-- <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg"> -->
+        <img id="sky_sphere-texture" src="/asses/tour/jiuyuangang/assets/sky_sphere.jpg">
+
+        <img id="floor-texture" src="/asses/textures/other/Diban_Base_Color.jpg">
+        <img id="floor-texture-AO" src="/asses/textures/other/Diban_Ambient_Occlusion.jpg">
+        <img id="floor-texture-diff" src="/asses/textures/other/Diban_Diffuse.jpg">
+        <!--<img id="floor-texture-AO" src="/asses/textures/other/Diban_Ambient_Occlusion.jpg">-->
+        <img id="wood-texture-base" src="/asses/textures/other/PlankWoodBase_basecolor.jpg">
+        <img id="wood-texture-height" src="/asses/textures/other/PlankWoodBase_height.jpg">
+        <img id="wood-texture-roughness" src="/asses/textures/other/PlankWoodBase_roughness.jpg">
+        <img id="wall-texture-base" src="/asses/textures/other/Wall_Paint_basecolor.jpg">
+        <img id="wall-texture-roughness" src="/asses/textures/other/Wall_Paint_roughness.jpg">
+        <img id="tip1-texture" src="/asses/tip/Name_1.png">
+        <img id="tip2-texture" src="/asses/tip/Name_2.png">
+        <img id="tip3-texture" src="/asses/tip/Name_3.png">
+        <img id="tip4-texture" src="/asses/tip/Name_4.png">
+        <img id="tip5-texture" src="/asses/tip/Name_5.png">
+        <img id="tip7-texture" src="/asses/tip/Name_7.png">
+        <img id="tip8-texture" src="/asses/tip/Name_8.png">
+        <img id="tip9-texture" src="/asses/tip/Name_9.png">
+        <img id="tip10-texture" src="/asses/tip/Name_10.png">
+        <img id="tip11-texture" src="/asses/tip/Name_11.png">
+        <img id="tip12-texture" src="/asses/tip/Name_12.png">
+        <img id="tip13-texture" src="/asses/tip/Name_13.png">
+        <img id="tip14-texture" src="/asses/tip/Name_14.png">
+        <img id="tip15-texture" src="/asses/tip/Name_15.png">
+        <img id="tip16-texture" src="/asses/tip/Name_16.png">
+        <img id="tip17-texture" src="/asses/tip/Name_17.png">
+        <img id="tip18-texture" src="/asses/tip/Name_18.png">
+
+
+        <!-- jieti -->
+        <a-asset-item id="horse-obj" src="/asses/models/jieti.obj"></a-asset-item>
+        <img id="jieti-texture" src="/asses/textures/jieti.jpg">
+        <!-- - jieti -->
+
+        <!-- back -->
+        <a-asset-item id="back-obj" src="asses/models/back.obj"></a-asset-item>
+        <img id="back-texture" src="asses/textures/back.jpg">
+        <!-- - back -->
+
+        <!-- guodao_qiang -->
+        <a-asset-item id="guodao_qiang-obj" src="asses/models/guodao_qiang.obj"></a-asset-item>
+        <img id="guodao_qiang-texture" src="asses/textures/guodao_qiang.jpg">
+        <!-- - guodao_qiang -->
+
+        <!-- left -->
+        <a-asset-item id="left-obj" src="asses/models/left.obj"></a-asset-item>
+        <img id="left-texture" src="asses/textures/left.jpg">
+        <!-- - left -->
+
+        <!-- middle -->
+        <a-asset-item id="middle-obj" src="asses/models/middle.obj"></a-asset-item>
+        <img id="middle-texture" src="asses/textures/middle.jpg">
+        <!-- - middle -->
+
+        <!-- right -->
+        <a-asset-item id="right-obj" src="asses/models/right.obj"></a-asset-item>
+        <img id="right-texture" src="/asses/textures/right.jpg">
+        <!-- - right -->
+        <!-- suipian_dingbu -->
+        <a-asset-item id="suipian_dingbu-obj" src="asses/models/suipian_dingbu.obj"></a-asset-item>
+        <img id="suipian_dingbu-texture" src="asses/textures/suipian_dingbu.jpg">
+        <!-- - suipian_dingbu -->
+        <!-- suipian_langan -->
+        <a-asset-item id="suipian_langan-obj" src="asses/models/suipian_langan2.obj"></a-asset-item>
+        <img id="suipian_langan-texture" src="asses/textures/suipian_langan2.jpg">
+        <!-- - suipian_langan -->
+        <!-- suipian_sizhou -->
+        <a-asset-item id="suipian_sizhou-obj" src="asses/models/suipian_sizhou.obj"></a-asset-item>
+        <img id="suipian_sizhou-texture" src="asses/textures/suipian_sizhou.jpg">
+        <!-- - suipian_sizhou -->
+        <!-- suipian_zhuzi -->
+        <a-asset-item id="zhuzi-obj" src="asses/models/zhuzi.obj"></a-asset-item>
+        <img id="zhuzi-texture" src="asses/textures/zhuzi.jpg">
+        <!-- door -->
+        <a-asset-item id="door-obj" src="asses/models/door.obj"></a-asset-item>
+        <img id="door-texture" src="asses/textures/wall.jpg">
+
+    </a-assets>
+
+
+    <a-sky color="#EEEEFF" material="src: #sky_sphere-texture;"></a-sky>
+    <a-box width="10" height="0.1" depth="16"
+           material="repeat:5 8;ambientOcclusionMapIntensity:0.1;ambientOcclusionMap:#floor-texture-AO; src:#floor-texture;roughness:0.45"
+           position="-0.1 0.037 0.015" rotation="0 1.1459155902616465 0" geometry="" shadow="cast:false"></a-box>
+    <a-entity obj-model="obj: #jieti-obj;" material="src: #jieti-texture" id="jieti" shadow=""></a-entity>
+    <a-entity obj-model="obj: #back-obj;" material="src: #back-texture" id="back"></a-entity>
+    <a-entity obj-model="obj: #guodao_qiang-obj;" material="src: #guodao_qiang-texture"></a-entity>
+    <a-entity obj-model="obj: #left-obj;" material="src: #left-texture"></a-entity>
+    <a-entity obj-model="obj: #middle-obj;" material="src: #middle-texture"></a-entity>
+    <a-entity obj-model="obj: #right-obj;" material="src: #right-texture"></a-entity>
+    <a-entity obj-model="obj: #suipian_dingbu-obj;" material="src: #suipian_dingbu-texture"></a-entity>
+    <a-entity obj-model="obj: #suipian_langan-obj;" material="color:#ababab;src: #suipian_langan-texture;"></a-entity>
+    <a-entity obj-model="obj: #suipian_sizhou-obj;" material="src: #suipian_sizhou-texture"></a-entity>
+    <a-entity obj-model="obj: #zhuzi-obj;" material="src: #zhuzi-texture;" position="0 0 0.041" shadow=""></a-entity>
+    <a-entity obj-model="obj: #door-obj;" material="src: #door-texture"></a-entity>
+
+    <a-entity id="tip1" pic-on-mouseenter="text:十二时辰之马;pic:asses/assets/ani/ma.jpg" position="-0.511 3.019 0.481"
+              rotation="8 -180 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip1-texture ;transparent:true"></a-entity>
+    <a-entity id="tip2" pic-on-mouseenter="text:十二时辰之羊;pic:asses/assets/ani/yang.jpg" position="-1.636 3.057 0.104"
+              rotation="0 144.213 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip2-texture ;transparent:true"></a-entity>
+    <a-entity id="tip3" pic-on-mouseenter="text:十二时辰之猴;pic:asses/assets/ani/hou.jpg" position="-2.162 3.042 -0.975"
+              rotation="0 94.76721931463815 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip3-texture ;transparent:true"></a-entity>
+    <a-entity id="tip4" pic-on-mouseenter="text:十二时辰之鸡;pic:asses/assets/ani/ji.jpg" position="-2.148 3.107 -1.874"
+              rotation="0 83.13617607348246 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip4-texture ;transparent:true"></a-entity>
+    <a-entity id="tip5" pic-on-mouseenter="text:白虎;pic:asses/assets/ani/baihu.jpg" position="-2.029 3.456 -2.001"
+              rotation="0 76.891 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip5-texture ;transparent:true"></a-entity>
+
+    <a-entity id="tip7" pic-on-mouseenter="text:十二时辰之猪;pic:asses/assets/ani/zhu.jpg" position="-0.636 3.2 -3.36"
+              rotation="0 6.41712730546522 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip7-texture ;transparent:true"></a-entity>
+    <a-entity id="tip8" position="-1.658 2.052 -3.278" rotation="0 35.408791739084876 0"
+              geometry="primitive:plane;height:0.2;width:0.64"
+              material="transparent:true;emissive:#000000;src:#tip8-texture"></a-entity>
+
+
+    <a-entity id="tip9" position="-0.7 2.495 -3.575" rotation="0 4.411775022507339 0"
+              geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip9-texture ;transparent:true"></a-entity>
+    <a-entity id="tip10" position="-0.883 2.637 -3.491" rotation="0 11.459155902616466 0"
+              geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip10-texture ;transparent:true"></a-entity>
+    <a-entity id="tip11" position="0.152 2.649 -3.577" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip11-texture ;transparent:true"></a-entity>
+    <a-entity id="tip12" pic-on-mouseenter="text:十二时辰之虎;pic:asses/assets/ani/hu.jpg" position="1.812 2.971 -2.338"
+              rotation="0 -86.28744394670198 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip12-texture ;transparent:true"></a-entity>
+    <a-entity id="tip13" pic-on-mouseenter="text:十二时辰之兔;pic:asses/assets/ani/tu.jpg" position="1.875 3.032 -1.339"
+              rotation="3.036676314193363 -95.5693602278213 -0.2864788975654116"
+              geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip13-texture ;transparent:true"></a-entity>
+    <a-entity id="tip14" pic-on-mouseenter="text:青龙;pic:asses/assets/ani/qinglong.jpg" position="1.701 3.398 -1.327"
+              rotation="6.302535746439055 -97.91848718785769 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip14-texture ;transparent:true"></a-entity>
+    <a-entity id="tip15" pic-on-mouseenter="text:十二时辰之龙;pic:asses/assets/ani/long.jpg" position="1.652 2.981 -0.473"
+              rotation="-3.437746770784939 -102.90322000549585 0.7448451336700702"
+              geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip15-texture ;transparent:true"></a-entity>
+    <a-entity id="tip16" pic-on-mouseenter="text:十二时辰之蛇;pic:asses/assets/ani/she.jpg" position="0.814 3.062 0.257"
+              rotation="0 -176.2991135617543 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip16-texture ;transparent:true"></a-entity>
+    <a-entity id="tip17" pic-on-mouseenter="text:朱雀;pic:asses/assets/ani/zhuque.jpg" position="-0.287 3.437 0.282"
+              rotation="8.021409131831525 179.33578987594765 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip17-texture ;transparent:true"></a-entity>
+    <a-entity id="tip18" pic-on-mouseenter="text:玄武;pic:asses/assets/ani/xuanwu.jpg" position="0.14 3.518 -3.277"
+              rotation="7.104676659622208 0 0" geometry="width:0.64;height:0.2;primitive:plane"
+              material="emissive:#000000;src:#tip18-texture ;transparent:true"></a-entity>
+
+
+    <a-entity position="0.533 1.182 2.836" pic-on-mouseenter="text:甬道东壁门吏;pic:asses/assets/ani/YDD_1.jpg"
+              rotation="0 -87.77713421404212 0" scale="0.664 1.704 1" geometry="primitive:plane"
+              material="opacity:0;side:double" id="YDD_1"></a-entity>
+    <a-entity position="-0.657 1.182 2.879" pic-on-mouseenter="text:甬道西壁门吏;pic:asses/assets/ani/YDX_1.jpg"
+              rotation="0 -87.77713421404212 0" scale="0.664 1.704 1" geometry="primitive:plane"
+              material="opacity:0;side:double" id="YDX_1"></a-entity>
+    <a-entity position="0.502 1.154 1.399" pic-on-mouseenter="text:甬道东壁仪卫;pic:asses/assets/ani/YDD_2.jpg"
+              rotation="0 -87.77713421404212 0" scale="1.454 1.704 1" geometry="primitive:plane"
+              material="opacity:0;side:double" id="YDD_2"></a-entity>
+    <a-entity position="-0.671 1.154 1.399" pic-on-mouseenter="text:甬道西壁仪卫;pic:asses/assets/ani/YDX_2.jpg"
+              rotation="1.776169164905552 -87.77713421404212 0.057295779513082325" scale="1.454 1.704 1"
+              geometry="primitive:plane" material="opacity:0;side:double" id="YDX_2"></a-entity>
+    <a-entity position="-0.285 1.358 -3.657" text-on-mouseenter="text:北壁壁画 夫妇饮宴" id="BB_1" geometry="primitive:plane"
+              material="opacity:0"></a-entity>
+    <a-entity position="1.112 1.308 -3.552" text-on-mouseenter="text:北壁男侍从" rotation="0 -21.772396214971284 0"
+              scale="0.591 1 1" id="BB_2" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="1.91 1.209 -2.05" text-on-mouseenter="text:东壁马夫" rotation="0 -87.1468806393982 0"
+              scale="2.23 1 1" id="DB_1" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="1.829 1.208 -0.381" text-on-mouseenter="text:东壁远景" rotation="0 -98.49144498298851 0"
+              scale="0.849 1 1" id="DB_2" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="1.101 1.208 0.352" text-on-mouseenter="text:南壁鼓吹图" rotation="0 -167.93392975284428 0"
+              scale="0.939 1.524 1" id="NB_1" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="-1.266 1.208 0.352" text-on-mouseenter="text:南壁鼓吹图" rotation="0 -167.93392975284428 0"
+              scale="0.939 1.524 1" id="NB_2" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="-2.091 1.208 -2.734" text-on-mouseenter="text:西壁女侍从" rotation="0 78.32333059438353 0"
+              scale="0.939 1.524 1" id="XB_1" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="-2.088 1.817 -0.293" text-on-mouseenter="text:西壁远景" rotation="0 93.50671216535035 0"
+              scale="0.939 0.718 1" id="XB_2" geometry="primitive:plane" material="opacity:0"></a-entity>
+    <a-entity position="-2.218 1.076 -0.834" text-on-mouseenter="text:西璧驭手" rotation="0 94.07966996048117 0"
+              scale="1.579 0.718 1" id="XB_3" geometry="primitive:plane" material="opacity:0"></a-entity>
+
+    <!--<a-entity position="1 0.05 1">-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.298 0 1.82"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 1.82"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 1.355"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 0.919"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 0.463"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 0.013"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.773 0 -0.453"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.301 0 1.385"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.313 0 0.94"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.337 0 0.513"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.353 0 0.062"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.369 0 -0.412"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -0.872"-->
+                    <!--color="#39BB82" material="opacity:0" scale="2.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -1.3"-->
+                    <!--color="#39BB82" material="opacity:0" scale="2.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -1.755"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -2.268"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -2.734"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -3.177"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.088 0 -3.589"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.731 0 -3.346"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.871 0 -2.897"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.864 0 -2.455"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.814 0 -1.99"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-1.787 0 -1.542"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.38 0 -1.542"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.38 0 -1.988"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.38 0 -2.465"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.38 0 -2.956"-->
+                    <!--color="#39BB82" material="opacity:0" scale="1.5 1 1"></a-cylinder>-->
+        <!--<a-cylinder move-here="" checkpoint="offset:0 1.6 0" radius="0.2" height="0.1" position="-0.526 0 -3.415"-->
+                    <!--color="#39BB82" material="opacity:0"></a-cylinder>-->
+    <!--</a-entity>-->
+
+
+    <a-entity cameraRig="camera"></a-entity>
+    <a-entity id="camera" camera="userHeight: 1.6 ;fov:60" fenced=" xMin:-0.482  ;xMax:0.32 ;zMin:-2.864 ;zMax: 3.8"
+              universal-controls="movementControls: checkpoint, keyboard;movementAcceleration:20"
+              checkpoint-controls="mode: animate" position="0 0 3.8"
+              rotation="-3.552338329811104 -0.6875493541569879 0.34377467707849396">
+        <a-cursor id="cursor"
+                  geometry="primitive: ring; radiusInner: 0.0001; radiusOuter: 0.03"
+                  material="color:#ffffff;src: asses/assets/mouse/mouseleave.png; transparent:true;"
+                  animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                  animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                  event-set__1="_event: mouseenter; material: src: asses/assets/mouse/mouseenter.png;;"
+                  event-set__2="_event: mouseleave;  material: src: asses/assets/mouse/mouseleave.png; "></a-cursor>
+    </a-entity>
+
+
+</a-scene>
+<script>
+    // console.log(THRSS);
+</script>
+<!-- <script>
+var sceneEl = document.querySelector('a-scene');
+var boxEl = sceneEl.querySelector('a-box');
+
+// 使用 `getAttribute` 获得实体的数据。
+console.log(boxEl.getAttribute('position'));
+// >> {x: -1, y: 0.5, z: -3}
+
+// 使用 `addEventListener` 监听事件。
+boxEl.addEventListener('mouseenter', function () {
+  // 使用 `setAttribute` 修改属性。
+  boxEl.setAttribute('color', 'red');
+});
+</script> -->
+</body>
+</html>

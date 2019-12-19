@@ -9,6 +9,24 @@ public class User {
     private String token;
     private Long gmtCreate;
     private Long gmtModified;
+    private String tupian;
+    private String password;
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setTupian(String tupian) {
+        this.tupian = tupian;
+    }
+
+    public String getTupian() {
+        return tupian;
+    }
 
     public void setId(Integer id) {
         this.id = id;

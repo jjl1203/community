@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/asses/assets/style.css">
+</head>
+<body>
+
+<!-- <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+<script src="js/aframe.min.js"></script>
+
+<script src="http://cdn.plex-vr.com/tour/bihua/js/aframe-extras.min.js"></script>
+<script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+<script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+
+<div id="left_pic_info"> </div>
+<div id="right_pic_info"> </div>
+<a-scene>
+
+    <a-assets>
+        <img id="sky_sphere-texture" src="/asses/tour/jiuyuangang/assets/sky_sphere.jpg">
+
+        <a-asset-item id="guodao_qiang-obj" src="asses/models/guodao_qiang.obj"></a-asset-item>
+        <img id="guodao_qiang-texture" src="asses/textures/guodao_qiang.jpg">
+
+    </a-assets>
+
+    <a-sky color="#EEEEFF" material="src: #sky_sphere-texture;"></a-sky>
+    <a-entity position="0.502 1.154 1.399" pic-on-mouseenter="info:朔州水泉梁北齐壁画墓是2008年发现的另一座北齐壁画墓，位于山西省朔州市朔城区窑子头乡水泉梁村，规模小于娄叡墓，山西博物院于2008年6月进行了考古发掘及壁画搬迁保护工作，是国内复原较大型墓葬壁画结构的一大成功案例。;text:甬道东壁仪卫;pic:asses/assets/ani/YDD_2.jpg"
+              rotation="0 -87.77713421404212 0" scale="1.454 1.704 1" geometry="primitive:plane"
+              material="opacity:0;side:double" id="YDD_2"></a-entity>
+    <a-entity obj-model="obj: #guodao_qiang-obj;" material="src: #guodao_qiang-texture"></a-entity>
+
+    <a-entity cameraRig="camera"></a-entity>
+    <a-entity id="camera" camera="userHeight: 1.6 ;fov:60" fenced=" xMin:-0.482  ;xMax:0.32 ;zMin:-2.864 ;zMax: 3.8"
+              universal-controls="movementControls: checkpoint, keyboard;movementAcceleration:20"
+              checkpoint-controls="mode: animate" position="0 0 3.8"
+              rotation="-3.552338329811104 -0.6875493541569879 0.34377467707849396">
+        <a-cursor id="cursor"
+                  geometry="primitive: ring; radiusInner: 0.0001; radiusOuter: 0.03"
+                  material="color:#ffffff;src: asses/assets/mouse/mouseleave.png; transparent:true;"
+                  animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                  animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                  event-set__1="_event: mouseenter; material: src: asses/assets/mouse/mouseenter.png;"
+                  event-set__2="_event: mouseleave;  material: src: asses/assets/mouse/mouseleave.png;"></a-cursor>
+    </a-entity>
+</a-scene>
+
+
+<script>
+
+    AFRAME.registerComponent('pic-on-mouseenter', {
+        //dependencies: ['raycaster'],
+        schema: {
+            text: {default: ''},
+            pic: {default: ''}
+        },
+        init: function () {
+            var data = this.data;
+            var el = this.el;
+            var pic_box = document.getElementById("left_pic_info");
+            var pic_world = document.getElementById("right_pic_info");
+            console.log(data);
+            console.log(el);
+            el.addEventListener('mouseenter', function () {
+                pic_box.style.left=0;
+                pic_box.innerHTML="<h3>"+data.text+"</h3><img src="+ data.pic +">";
+
+                pic_world.style.right=0;
+                pic_world.innerHTML="<h3>"+data.info+"</h3>";
+            });
+            el.addEventListener('mouseleave', function () {
+                //pic_box.innerHTML='';
+                pic_box.style.left="-36vw"
+                pic_world.style.right="-36vw"
+            });
+
+        }
+    });
+</script>
+</body>
+</html>

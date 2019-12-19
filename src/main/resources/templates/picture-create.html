@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Win10 Ui</title>
+    <link rel="stylesheet" href="/dist/css/css.css">
+    <script src="/dist/js/main.min.js"></script>
+</head>
+
+<body>
+<div class="public_box">
+    <h1 class="title">
+        <strong>创建图片</strong>
+        <span>
+                    <a class="button-normal button-search" href="#">创建列表</a>
+            </span>
+    </h1>
+    <div class="tabBox">
+        <div class="tabTitle">
+            <div class="tabWrap">
+                <span class="tabBtn tabActive">常规内容</span>
+                <span class="tabBtn">SEO设置</span>
+                <span class="tabBtn">栏目内容</span>
+            </div>
+        </div>
+        <div class="tabBody mb10">
+            <div class="bodyLi bodyActive">
+                <div class="win-input mb10">
+                    <span class="input-name"><i class="mustAdd">*</i>图片名称</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+
+                <div class="win-input mb10">
+                    <span class="picture-name">图片上传</span>
+                    <div class="picture-box">
+                        <div class="uploadImgBox">
+                            <div class="imgBox">
+                                <!-- <img src="./imgs/bg.jpg" alt=""> -->
+                            </div>
+                            <div class="btnGroupImg">
+                                <div class="thumbImg">
+
+                                    <!-- 图片文本框 -->
+                                    <input type="file" class="form-control" id="file" name="file" th:onchange="javascript:preview(this)">
+
+                                    <!-- 这个是在上传之前回显图片图片展示 -->
+                                    <div id="preview">
+                                        　　<!--这个是为了将页面返回的图片展示出来的.默认隐藏-->
+                                        　　<img style="width: 100px; height: 100px;display:none" id="imgHidden" />
+                                    </div>
+
+                                    <!-- 提交...这里pageIndex和pageSize可传可不传,主要取决于提交之后是否需要回到当前页面. -->
+                                    <button type="submit" th:onclick="javascript:submitForm([[${pageIndex}]],[[${pageSize}]])" class="btn btn-primary">提交</button>
+
+                                </div>
+                                <div class="rbBtn">
+                                    <button class="addImgBtn"></button>
+                                    <button class="clearImgBtn"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="win-input mb10">
+                    <span class="input-name">所属栏目</span>
+                    <div class="select-box">
+                        <select class="select">
+                            <option value="">下拉选项</option>
+                            <option value="">下拉选项</option>
+                            <option value="">下拉选项</option>
+                            <option value="">下拉选项</option>
+                            <option value="">下拉选项</option>
+                            <option value="">下拉选项</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="win-input mb10">
+                    <span class="input-name">图片描述</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+                <div class="win-input mb10">
+                    <span class="input-name">排序</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+                <div class="win-input mb10">
+                    <span class="input-name">图片链接</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+                <div class="win-input mb10">
+                    <span class="input-name">显示状态</span>
+                    <div class="radio-box">
+                        <label class="label-radio">
+                            <input type="radio" name="radio">
+                            <span class="radio-name">发布&emsp;&emsp;</span>
+                        </label>
+                        <label class="label-radio">
+                            <input type="radio" name="radio">
+                            <span class="radio-name">待审核&emsp;</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="win-input ">
+                    <span class="input-name">打开方式</span>
+                    <div class="radio-box">
+                        <label class="label-radio">
+                            <input type="radio" name="radio">
+                            <span class="radio-name">新建窗口</span>
+                        </label>
+                        <label class="label-radio">
+                            <input type="radio" name="radio">
+                            <span class="radio-name">直接打开</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="bodyLi">
+                <div class="win-input mb10">
+                    <span class="input-name">标题</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+                <div class="win-input mb10">
+                    <span class="input-name">关键词</span>
+                    <input type="text" class="text-full" placeholder="请输入">
+                </div>
+
+                <div class="win-input">
+                    <span class="textarea-name">描述</span>
+                    <div class="textarea-box">
+                        <textarea class="textarea" cols="30" rows="5" placeholder="请输入"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="bodyLi">
+                富文本编辑器请置入
+            </div>
+        </div>
+
+        <div class="actionBtnGroup">
+            <button class="button-normal button-add">保存</button>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="./dist/css/css.css">
+<script src="./dist/js/main.min.js"></script>
+<script>
+    $(function () {
+        $('.tabWrap .tabBtn').click(function () {
+            $(this).addClass('tabActive').siblings('span').removeClass('tabActive');
+            var idx = $(this).index();
+            $(".bodyLi").eq(idx).addClass('bodyActive').siblings('.bodyLi').removeClass('bodyActive');
+        })
+
+
+        $('.button-del').click(function () {
+            popupAlert({
+                title: "您真的要删除当前这个类目么？",
+                info: "当前栏目AAAA123456",
+                btnSure: "确定",
+                btnCancel: "取消"
+            }, function (sure) {
+                tipAlert({
+                    title: "删除成功",
+                    state: "true", //true成功 fail失败
+                    time: 1 //3秒后关闭
+                });
+            }, function (cancel) {
+            });
+        })
+    })
+</script>
+</body>
+
+</html>
